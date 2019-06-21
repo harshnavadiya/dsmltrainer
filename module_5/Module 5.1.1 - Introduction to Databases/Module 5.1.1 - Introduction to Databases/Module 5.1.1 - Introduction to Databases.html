@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="exporter-version" content="Evernote Mac 7.10 (457750)" />
+    <meta name="author" content="mks.infy@gmail.com" />
+    <meta name="created" content="2019-06-08 11:20:16 +0000" />
+    <meta name="source" content="desktop.mac" />
+    <meta name="updated" content="2019-06-11 02:41:36 +0000" />
+    <title>Module 5.1.1 - Introduction to Databases</title>
+</head>
+
+<body style="zoom: 1.25;">
+    <div><img src="header_from_front.png" height="116"
+            width="1062" /><br /></div>
+    <div><span
+            style="font-size: 48px; orphans: 2; widows: 2; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;;">||
+            Introduction to Databases</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">We
+            will discuss SQL basics and explain various aspects of the relational database model.  </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgba(0, 0, 0, 0.8); font-variant-caps: normal; font-variant-ligatures: normal;">You
+                should will be able to describe SQL, data, </span></font><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">database,
+            a relational database and list five basic SQL commands.</span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="770E9EC2-A36F-4E85-B65B-1994F8DCF1C9.png"
+                height="442" width="858" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="color: rgba(0, 0, 0, 0.8); font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="E70F8AF2-8E1A-4706-927F-47E38D4BFAA6.png"
+                height="442" width="841" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">The
+            columns contain properties about the item such as last name, </span><span
+            style="background-color: rgba(42, 181, 115, 0.14902); font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">first
+            name, email address, city. </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">A
+            table is a collection of related things like </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">a
+            list of employees or a list of book authors. </span><span
+            style="background-color: transparent; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">In
+            a relational database, </span><span
+            style="background-color: transparent; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">you
+            can form relationships between tables. </span><span
+            style="background-color: rgb(238, 238, 238); font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">So
+            a database is a repository of data. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">A
+            set of software tools for the data in the database is called </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">a
+            database management system or DBMS for short. </span><span
+            style="font-size: 18px; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">The
+            terms database, database server, database system,</span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">data
+            server and database management systems are often used interchangeably. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">In
+                Classroom QUIZ</span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Which
+            of the following statements are correct about databases :</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; font-size: 14px;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                <div dir="auto"
+                    style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div
+                            style="-webkit-font-smoothing: antialiased; font-size: 14px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                            <span
+                                style="-webkit-font-smoothing: antialiased;font-size: 14px;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                                    style="font-size: 14px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;"><input
+                                        type="checkbox" />A database is a repository or logically coherent collection of
+                                    data with some inherent meaning</span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; font-size: 14px;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                <div dir="auto"
+                    style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div
+                            style="-webkit-font-smoothing: antialiased; font-size: 14px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                            <span
+                                style="-webkit-font-smoothing: antialiased;font-size: 14px;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                                    style="font-size: 14px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;"><input
+                                        type="checkbox" />Typically comes with functionality for adding, modifying and
+                                    querying data</span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; font-size: 14px;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                <div dir="auto"
+                    style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div
+                            style="-webkit-font-smoothing: antialiased; font-size: 14px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                            <span
+                                style="-webkit-font-smoothing: antialiased;font-size: 14px;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                                    style="font-size: 14px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;"><input
+                                        type="checkbox" />SQL or Structured Query Language is commonly used for
+                                    accessing data in relational databases</span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(255, 255, 255); font-size: 14px;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; font-size: 14px;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; font-size: 14px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased;font-size: 14px;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                                        style="background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;"><input
+                                            type="checkbox" />All the above options are correct</span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="B6C7B46C-BE65-47E8-91A4-37BCCD8C49A1.png"
+                height="437" width="818" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">For
+            relational databases, it's called a relational database management system or RDBMS. </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">RDBMS
+            is a set of software tools that controls </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">the
+            data such as access, organization and storage. </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">And
+            RDBMS serves as the backbone of applications in many industries including banking, transportation, health
+            and so on. </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Examples
+            of relational database management systems are, </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">mySQL,
+            Oracle Database, </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">DB2
+            Warehouse on Cloud and DB2 Express C.
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal;">A
+                relational database stores data in a tabular format - i.e. in rows and columns. But not all types of
+                databases use the tabular format.</span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px;"><br /></span>
+        </font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px;"><br /></span>
+        </font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="48FC465C-68C5-43F7-B31A-714405B1B532.png"
+                height="423" width="818" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(238, 238, 238); font-size: 14px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; background-color: rgb(238, 238, 238); font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span></span>
+    </div>
+    <div style="text-align: start;"><span style="font-size: 36px;">|| </span><span
+            style="orphans: 2; widows: 2; font-size: 36px; color: rgb(55, 58, 60); font-family: OpenSans-light, Arial, sans-serif;">How
+            to create a Database instance on Cloud?</span></div>
+    <div style="text-align: start;"><br /></div>
+    <div style="text-align: start;"><span
+            style="font-size: 18px; orphans: 2; widows: 2; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-ligatures: normal;">A
+            Cloud database is a database service built and </span><span
+            style="font-size: 18px; orphans: 2; widows: 2; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;;">accessed
+            through a Cloud platform. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">It
+            serves many of the same functions as traditional databases with the added </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">flexibility
+            of Cloud computing. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Users
+            install software on a Cloud infrastructure to implement the database.</span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgba(42, 181, 115, 0.14902); font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Advantages
+            of using Cloud databases are ease of use, users can access </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Cloud
+            databases from virtually anywhere using a vendors API or web interface. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <img src="1C8F668A-73B5-480D-8CA0-D810ACF8ED25.png"
+            height="366" width="844" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Scalability,
+            Cloud databases can expand their storage capacities during </span><span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">runtime
+            to accommodate changing needs, organizations only pay for what they use. Disaster recovery, in the event of
+            a natural disaster equipment failure or power outage data is kept secure through backups on remote
+            servers. A few examples of cloud SQL databases are IBM Db2 Warehouse on Cloud, composed for PostgreSQL,
+            Oracle Database Cloud, Microsoft Azure Cloud, SQL Database, Amazon Relational Database Services, which can
+            run in the Cloud, either in a virtual machine or as a service depending on the vendor.</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <img src="48F925B4-B2A4-480F-B8FF-FEB4EE7595BB.png"
+            height="331" width="848" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 36px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 36px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 36px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;;">|| Creating a
+            DB2 instance on IBM Cloud</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <img src="2980DCCE-B583-41CE-8FF4-64ED360B7E78.png"
+            height="401" width="843" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <img src="8C0005C9-6139-425A-97FD-4065F32ACB47.png"
+            height="393" width="856" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <img src="EAA5B40F-6DFA-4B1F-B15C-2CE42FF42996.png"
+            height="421" width="802" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <img src="A28DCA1A-79BA-40C6-9D0A-677375A9E067.png"
+            height="330" width="855" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <img src="020347C2-99D1-4892-BEF2-0137D4406A64.png"
+            height="371" width="848" /><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <div><br /></div>
+        <div><br /></div>
+        <div><br /></div>
+        <div><br /></div>
+        <div><br /></div>
+        <div><br /></div>
+    </div>
+    <div><br /></div>
+</body>
+
+</html>

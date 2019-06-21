@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="exporter-version" content="Evernote Mac 7.10 (457750)" />
+    <meta name="author" content="mks.infy@gmail.com" />
+    <meta name="created" content="2019-06-09 13:59:51 +0000" />
+    <meta name="source" content="desktop.mac" />
+    <meta name="updated" content="2019-06-14 05:58:13 +0000" />
+    <title>Module 5.1.3 - Advanced SQL</title>
+</head>
+
+<body>
+    <div><img src="images/header_from_front.png" height="116"
+            width="1062" /></div>
+    <div><br /></div>
+    <div>
+        <font style="font-size: 36px;">|| <span
+                style="color: rgb(55, 58, 60); font-family: OpenSans-Light, Arial, sans-serif; orphans: 2; widows: 2; background-color: rgb(250, 250, 250);">String
+                Patterns, Ranges</span></font>
+    </div>
+    <div>
+        <font style="font-size: 36px;"><span
+                style="color: rgb(55, 58, 60); font-family: OpenSans-Light, Arial, sans-serif; orphans: 2; widows: 2; background-color: rgb(250, 250, 250);"><br /></span>
+        </font>
+    </div>
+    <div><span style="font-size: 36px; color: rgb(55, 58, 60); font-family: OpenSans-Light;"><img
+                src="images/B342DBF8-64C0-47E8-9CC0-2EDD8DDEF68F.png"
+                height="421" width="866" /></span></div>
+    <div><span style="font-size: 36px; color: rgb(55, 58, 60); font-family: OpenSans-Light;"><br /></span></div>
+    <div>
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="color: rgba(0, 0, 0, 0.8); orphans: 2; widows: 2;">What if we don't know exactly what value to
+                specify in the WHERE clause? </span><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">The
+                WHERE clause always requires a predicate, </span>which is a condition that evaluates to true, false or
+            unknown. But what if we don't know exactly what value the predicate is? <span style="">For example, what if
+                we can't remember the name of the author, </span><span style="">but we remember that their first name
+                starts with R? </span><span style="">In a relational database, </span><span style="">we can use string
+                patterns to search data rows that match this condition.</span><span style="">Let's look at some examples
+                of using string patterns. </span><span style="">If we can't remember the name of the
+                author, </span><span style="">but we remember that their name starts with R, </span><span style="">we
+                use the WHERE clause with the like predicate. </span><span style="">The like predicate is used in a
+                WHERE clause to search for a pattern in a column. </span><span style="">The percent sign is used to
+                define missing letters. </span><span style="">The percent sign can be placed before the
+                pattern, </span><span style="">after the pattern, or both before and after the pattern. </span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); background-color: rgba(42, 181, 115, 0.14902); outline: rgba(42, 181, 115, 0.498039) solid 1px; outline-offset: -1px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); background-color: rgba(42, 181, 115, 0.14902); outline: rgba(42, 181, 115, 0.498039) solid 1px; outline-offset: -1px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">In
+                this example, we use the percent sign after the pattern, </span><span
+                style="background-color: rgb(255, 255, 255);">which is the letter R. The percent sign is called a
+                wildcard character. </span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">A
+                wildcard character is used to substitute other characters. </span>So, if we can't remember the name of
+            the author, but we can remember that their first name starts with the letter R, <span style="">we add the
+                like predicate to the WHERE clause. </span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span style=""><br /></span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/2FC13920-6F38-4A37-BFA8-164E03CBFEAB.png"
+                height="325" width="840" /></span>
+        <font style="font-size: 18px;" face="Helvetica Neue"><span style=""><br /></span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span style=""><br /></span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span style="">For example, select first name from
+                author, </span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><span
+                style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">where
+                firstname like 'R%'. </span>This will return all rows in the author table whose author's first name
+            starts with the letter R. And here is the result set.</font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/256352B4-92DD-43D0-A32D-69FADFA51922.png"
+                height="436" width="840" /></span><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/76B98CD4-6BD9-4EED-8909-AB5775919605.png"
+                height="433" width="843" /></span><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="color: rgba(0, 0, 0, 0.8);">
+            <font style="font-size: 24px;">In Classroom Quiz</font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60);">You want to
+            select a list of books whose number of pages range from 100 to 200 . Select the correct query from the
+            following options.</span><br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="background-color: rgb(255, 255, 255); color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal;">
+            <font face="Helvetica Neue" style="font-size: 18px;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />SELECT title, pages from book where pages BETWEEN 100
+                                            AND 200</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />SELECT title, pages from book where pages RANGE 100
+                                            AND 200</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />SELECT title, pages from book where pages less than or
+                                            equal to 100 AND pages greater than or equal to 200</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />All the options above are correct</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </font>
+        </span><br /></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div>
+        <font style="font-size: 48px;"><span style="color: rgba(0, 0, 0, 0.8);">|| </span><span
+                style="caret-color: rgba(0, 0, 0, 0.8); color: rgba(0, 0, 0, 0.8);">Sorting Result Sets</span></font>
+    </div>
+    <div>
+        <font style="font-size: 48px;"><span
+                style="caret-color: rgba(0, 0, 0, 0.8); color: rgba(0, 0, 0, 0.8);"><br /></span></font>
+    </div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/54059163-24CA-41B6-835F-2BF27ED9E0C1.png"
+                height="371" width="847" /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/AEB3A4A3-B95B-4C4D-91D6-D64A885D4C7F.png"
+                height="375" width="856" /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/8CE10004-B6FE-4342-B382-0CEA8DA80457.png"
+                height="369" width="824" /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; color: rgb(55, 58, 60); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div dir="auto" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                    <span
+                        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                        <font style="font-size: 18px;" face="Helvetica Neue">If a sort order is not explicitly specified
+                            in the ORDER BY clause, in which order is the result set ordered?</font>
+                    </span></div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; color: rgb(55, 58, 60); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                                    <font style="font-size: 18px;" face="Helvetica Neue"><input
+                                            type="checkbox" />Randomly selected order</font>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                                    <font style="font-size: 18px;" face="Helvetica Neue"><input
+                                            type="checkbox" />Descending</font>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                                    <font style="font-size: 18px;" face="Helvetica Neue"><input
+                                            type="checkbox" />Ascending</font>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                                    <font style="font-size: 18px;" face="Helvetica Neue"><input type="checkbox" />None
+                                        of the above</font>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);">|| Grouping ResultSets</span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/178CA24A-330A-4B72-98EE-6F123527E215.png"
+                height="436" width="846" /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/319C6815-CF15-48FD-82B2-39D596F2E9A6.png"
+                height="416" width="870" /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/5876FECD-4DC3-4FFE-A2EB-BD26F09E04D5.png"
+                height="434" width="844" /></span></div>
+    <div><span style="font-size: 48px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8);">
+            <font style="font-size: 24px;">In Classroom QUIZ</font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; color: rgb(55, 58, 60); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div dir="auto" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                    <span
+                        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                        <font style="font-size: 18px;" face="Helvetica Neue">The HAVING clause works only with the GROUP
+                            BY clause. (T/F)</font>
+                    </span></div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; color: rgb(55, 58, 60); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                                    <font style="font-size: 18px;" face="Helvetica Neue"><input type="checkbox" />True
+                                    </font>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                    <div dir="auto"
+                        style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                            <div
+                                style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                <span
+                                    style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px;-en-paragraph:true;">
+                                    <font style="font-size: 18px;" face="Helvetica Neue"><input type="checkbox" />False
+                                    </font>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div />
+</body>
+
+</html>

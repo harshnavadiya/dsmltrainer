@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="exporter-version" content="Evernote Mac 7.10 (457750)" />
+    <meta name="author" content="mks.infy@gmail.com" />
+    <meta name="created" content="2019-06-08 11:48:00 +0000" />
+    <meta name="source" content="desktop.mac" />
+    <meta name="updated" content="2019-06-10 17:08:42 +0000" />
+    <title>Module 5.1.2 - Basic SQL</title>
+</head>
+
+<body>
+    <div><span style="font-size: 48px;"><img src="images/header_from_front.png"
+                height="116" width="1062" /><br /></span></div>
+    <div><span style="font-size: 48px;"><br /></span></div>
+    <div><span style="font-size: 48px; font-family: &quot;Helvetica Neue&quot;;">|| </span><span
+            style="orphans: 2; widows: 2; font-size: 48px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;;">Basic
+            SQL</span></div>
+    <div><span style="orphans: 2; widows: 2; font-size: 36px;"><br /></span></div>
+    <div><span style="font-size: 36px; color: rgb(55, 58, 60); font-family: OpenSans-light;"><img
+                src="images/39F4AF26-1C59-467A-A3CF-6B564B96AEEC.png"
+                height="410" width="806" /><br /></span></div>
+    <div><span
+            style="font-size: 18px; orphans: 2; widows: 2; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none;"><br /></span>
+    </div>
+    <div><span style="font-size: 18px;"><br /></span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);">|| Create Table</span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/2117CC64-0D14-4FAF-ABDD-FDB59855B08E.png"
+                height="403" width="878" /><br /></span></div>
+    <div><span style="font-size: 36px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">In
+                this example, the following data types are used. 
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Char
+                is a character string of a fixed length. 
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Varchar
+                is a character string of a variable length. 
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">In
+            addition, the author_id attribute is assigned as the primary key, </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">so
+            that no duplicate values can exist. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; outline: rgba(42, 181, 115, 0.498039) solid 1px; outline-offset: -1px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; outline: rgba(42, 181, 115, 0.498039) solid 1px; outline-offset: -1px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">The
+                primary key of a relational table uniquely identifies each tuple or row in a table. 
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="font-size: 14px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/CCF7D675-5328-4200-8C73-A5F57315FA4A.png"
+                height="433" width="783" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">The
+                author table is created using the CREATE TABLE statement. 
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">The
+                CREATE TABLE statement is one of the data definition language statements. 
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Data
+            definition language statements or </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">DDL
+            statements are used to create database objects. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="font-size: 18px; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Based
+            on the author entity and its attributes, </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">this
+            slide shows the CREATE TABLE statement. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Note
+            that the author_id is the primary key. </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">This
+            constraint prevents duplicate values in the table. Also note that last name and first name have the
+            constraint not null. </span><span
+            style="background-color: rgb(255, 255, 255); font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">This
+            ensures these fields cannot contain a null value. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">An
+                author must have a name. </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">Now
+            you can distinguish between data definition language statements, </span><span
+            style="background-color: rgb(255, 255, 255); -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">which
+            are used to define, </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">change,
+            or drop data, and data manipulation language statements, which are used to read and modify data. You can
+            also explain how the entity name and attributes are used to create a relational database table using the
+            CREATE TABLE statement. </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font style="font-size: 18px;" face="Helvetica Neue"><br /></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 36px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">||
+            SELECT statement</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal;">At
+            the end of this section, you should be able to</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 14px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/1B0B4391-DC2E-454E-9F5D-9E014CBC1949.png"
+                height="196" width="783" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-size: 14px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-size: 14px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 14px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 14px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 14px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 14px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/34D5D2A2-4606-49DB-A098-47AB538161DC.png"
+                height="406" width="839" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-size: 14px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-size: 14px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-size: 14px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><br /></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;">||
+            In Classroom QUIZ</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div dir="auto" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                    <span
+                        style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                            style="font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">A
+                            SELECT statement is a DML query and its output ...</span></span></div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(255, 255, 255);">
+            <font style="font-size: 18px;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />is called DDL</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />is called the Result Set</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />is an SQL query</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />cannot be NULL</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </font>
+        </span></div>
+    <div><br /></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8); font-family: OpenSans;"><img
+                src="images/663E9F16-6CCE-4FEC-8990-801AD9482BAA.png"
+                height="423" width="844" /><br /></span></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8); font-family: OpenSans;"><img
+                src="images/7D319078-9A7C-479C-9B3D-89B68B3A005D.png"
+                height="449" width="857" /><br /></span></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8); font-family: OpenSans;"><img
+                src="images/601A87D5-4A40-4EEE-B342-6F72A16599EB.png"
+                height="449" width="861" /><br /></span></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><span style="color: rgba(0, 0, 0, 0.8); font-family: OpenSans;"><img
+                src="images/B9E28E1A-7B16-4618-8A1C-CE5BA2375F39.png"
+                height="438" width="829" /><br /></span></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;;">|| Count,
+            Distinct , Limit</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">COUNT</span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">COUNT()
+                is a built in database function that retrieves the number of rows that match the query criteria. To get
+                the total number of rows in a given table, simply issue:
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border: 1px solid rgb(221, 221, 221); overflow: hidden; direction: ltr; background-color: rgb(255, 255, 255);">
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; left: 0px; cursor: default; z-index: 4; background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+            <div
+                style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: auto; text-align: right;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; padding-left: 19px; padding-right: 13px; background-repeat: no-repeat;">
+                    <span style="-webkit-font-smoothing: antialiased; background-repeat: no-repeat;"><span
+                            style="font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">1
+                        </span></span></div>
+            </div>
+        </div>
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; background-color: inherit; cursor: text; left: 41px; right: 0px;">
+            <div style="box-sizing: border-box; -webkit-font-smoothing: antialiased; min-width: 100%;">
+                <div
+                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: none; padding: 0px 4px;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="-webkit-font-smoothing: antialiased;">
+                            <font style="font-size: 18px;"><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">select</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(66, 113, 174); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">COUNT</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">(</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">*</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">)</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">from</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">tablename</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" />
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">Let's
+                say you create a table called MEDALS with a column called COUNTRY and you want to retrieve the number of
+                rows where the medal recipient is from CANADA. You can issue a query like:
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border: 1px solid rgb(221, 221, 221); overflow: hidden; direction: ltr; background-color: rgb(255, 255, 255);">
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; left: 0px; cursor: default; z-index: 4; background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+            <div
+                style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: auto; text-align: right;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; padding-left: 19px; padding-right: 13px; background-repeat: no-repeat;">
+                    <span style="-webkit-font-smoothing: antialiased; background-repeat: no-repeat;"><span
+                            style="font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">1
+                        </span></span></div>
+            </div>
+        </div>
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; background-color: inherit; cursor: text; left: 41px; right: 0px;">
+            <div style="box-sizing: border-box; -webkit-font-smoothing: antialiased; min-width: 100%;">
+                <div
+                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: none; padding: 0px 4px;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="-webkit-font-smoothing: antialiased;">
+                            <font style="font-size: 18px;"><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">select</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(66, 113, 174); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">COUNT</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">(</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">COUNTRY</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">)</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">from</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">MEDALS</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">where</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">COUNTRY</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(62, 153, 159); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">=</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(113, 140, 0); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">'CANADA'</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" />
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">DISTINCT</span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">DISTINCT
+                is used to remove duplicate values from a result set. To retrieve unique values in a column issue:
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border: 1px solid rgb(221, 221, 221); overflow: hidden; direction: ltr; background-color: rgb(255, 255, 255);">
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; left: 0px; cursor: default; z-index: 4; background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+            <div
+                style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: auto; text-align: right;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; padding-left: 19px; padding-right: 13px; background-repeat: no-repeat;">
+                    <span style="-webkit-font-smoothing: antialiased; background-repeat: no-repeat;"><span
+                            style="font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">1
+                        </span></span></div>
+            </div>
+        </div>
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; background-color: inherit; cursor: text; left: 41px; right: 0px;">
+            <div style="box-sizing: border-box; -webkit-font-smoothing: antialiased; min-width: 100%;">
+                <div
+                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: none; padding: 0px 4px;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="-webkit-font-smoothing: antialiased;">
+                            <font style="font-size: 18px;"><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">select</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">DISTINCT</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">columnname</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">from</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">tablename</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" />
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">In
+                the MEDALS table mentioned above there may be a lot of rows where the COUNTRY value is CANADA. Let's say
+                you want to retrieve the list of unique countries that received GOLD medals, that is, removing all
+                duplicate values of the same country. To do so, issue a query like:
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border: 1px solid rgb(221, 221, 221); overflow: hidden; direction: ltr; background-color: rgb(255, 255, 255);">
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; left: 0px; cursor: default; z-index: 4; background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+            <div
+                style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: auto; text-align: right;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; padding-left: 19px; padding-right: 13px; background-repeat: no-repeat;">
+                    <span style="-webkit-font-smoothing: antialiased; background-repeat: no-repeat;"><span
+                            style="font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">1
+                        </span></span></div>
+            </div>
+        </div>
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; background-color: inherit; cursor: text; left: 41px; right: 0px;">
+            <div style="box-sizing: border-box; -webkit-font-smoothing: antialiased; min-width: 100%;">
+                <div
+                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: none; padding: 0px 4px;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="-webkit-font-smoothing: antialiased;">
+                            <font style="font-size: 18px;"><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">select</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">DISTINCT</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">COUNTRY</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">from</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">MEDALS</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">where</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">MEDALTYPE</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(62, 153, 159); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">=</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(113, 140, 0); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">'GOLD'</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" />
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;">
+            <font style="font-size: 18px;"><br /></font>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">LIMIT</span></span>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;letter-spacing: normal;orphans: 2;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: rgb(250, 250, 250);-en-paragraph:true;"><span
+                style="background-color: rgb(250, 250, 250); font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">LIMIT
+                is used for restricting the number of rows retrieved from the database. To retrieve just the first 10
+                rows in a table:
+            </span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border: 1px solid rgb(221, 221, 221); overflow: hidden; direction: ltr; background-color: rgb(255, 255, 255);">
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; left: 0px; cursor: default; z-index: 4; background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+            <div
+                style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: auto; text-align: right;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; padding-left: 19px; padding-right: 13px; background-repeat: no-repeat;">
+                    <span style="-webkit-font-smoothing: antialiased; background-repeat: no-repeat;"><span
+                            style="font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">1
+                        </span></span></div>
+            </div>
+        </div>
+        <div
+            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; background-color: inherit; cursor: text; left: 41px; right: 0px;">
+            <div style="box-sizing: border-box; -webkit-font-smoothing: antialiased; min-width: 100%;">
+                <div
+                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: none; padding: 0px 4px;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="-webkit-font-smoothing: antialiased;">
+                            <font style="font-size: 18px;"><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">select</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">
+                                    * </span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">from</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">tablename</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">LIMIT</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" /><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(245, 135, 31); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;">10</span><span
+                                    style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; line-height: normal;" />
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; overflow-wrap: break-word; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250);">
+        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div
+                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                            <span
+                                style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                                    style="font-size: 18px; color: rgb(55, 58, 60); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">This
+                                    can be very useful to examine the result set by looking at just a few rows instead
+                                    of retrieving the entire result set which may be very large. For example to retrieve
+                                    just a few rows in the MEDALS table for a particular year, you can issue:
+                                </span></span></div>
+                        <div
+                            style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border: 1px solid rgb(221, 221, 221); overflow: hidden; direction: ltr; background-color: rgb(255, 255, 255);">
+                            <div
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; left: 0px; cursor: default; z-index: 4; background-color: rgb(246, 246, 246); background-position: initial initial; background-repeat: initial initial;">
+                                <div
+                                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: auto; text-align: right;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; padding-left: 19px; padding-right: 13px; background-repeat: no-repeat;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; background-repeat: no-repeat;"><span
+                                                style="font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">1
+                                            </span></span></div>
+                                </div>
+                            </div>
+                            <div
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow: hidden; top: 0px; background-color: inherit; cursor: text; left: 41px; right: 0px;">
+                                <div
+                                    style="box-sizing: border-box; -webkit-font-smoothing: antialiased; min-width: 100%;">
+                                    <div
+                                        style="box-sizing: border-box; -webkit-font-smoothing: antialiased; z-index: 1; overflow: hidden; overflow-wrap: normal; white-space: pre; pointer-events: none; padding: 0px 4px;">
+                                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                            <div style="-webkit-font-smoothing: antialiased;">
+                                                <font style="font-size: 18px;"><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">select</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">
+                                                        * </span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">from</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">MEDALS</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">where</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">YEAR</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(62, 153, 159); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">=</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(245, 135, 31); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">2018</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(137, 89, 168); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">LIMIT</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" /><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(245, 135, 31); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;">5</span><span
+                                                        style="-webkit-font-smoothing: antialiased; font-size: 18px; bottom: 0px; color: rgb(77, 77, 76); font-family: Monaco, Menlo, &quot;Ubuntu Mono&quot;, Consolas, source-code-pro, monospace; font-stretch: normal; font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal; line-height: normal;" />
+                                                </font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <span style="background-color: rgb(250, 250, 250);">
+            <div style="-webkit-font-smoothing: antialiased;">
+                <font style="font-size: 18px;"><br /></font>
+            </div>
+        </span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; font-size: 14px; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250); margin-top: 1em; margin-bottom: 1em;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; margin-top: 1em; margin-bottom: 1em;">
+        <span
+            style="font-size: 36px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">||
+            INSERT statement</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; line-height: 20px; max-width: 100%; min-height: 20px; color: rgb(55, 58, 60); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; margin-top: 1em; margin-bottom: 1em;" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span
+                style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal;">After
+                this section, we should</span></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <font style="font-size: 18px;"><span
+                style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal;">Identify
+                the syntax of </span><span style="background-color: rgb(238, 238, 238);"><span
+                    style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; font-size: 18px; background-color: rgb(238, 238, 238); color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal;">the 
+                </span></span><span style="background-color: rgba(42, 181, 115, 0.14902);"><span
+                    style="-webkit-font-smoothing: antialiased; cursor: text; opacity: 1; filter: none; outline: rgba(42, 181, 115, 0.498039) solid 1px; outline-offset: -1px; font-size: 18px; background-color: rgba(42, 181, 115, 0.14902); color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-caps: normal; font-variant-ligatures: normal;">the
+                    INSERT statement and explain two methods to add rows to a table. </span></span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-family: OpenSans, Arial, sans-serif; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);" />
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/B8754E3E-73D3-4B1C-9F4F-0F7E9B7EBBAB.png"
+                height="441" width="852" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="color: rgba(0, 0, 0, 0.8); font-family: OpenSans; font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/61D76D67-EED8-42E1-B67C-4E2144055354.png"
+                height="427" width="877" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">In
+            Classroom QUIZ</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <br /></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div dir="auto" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                    <span
+                        style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                            style="font-size: 18px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">A
+                            single INSERT statement can be used to insert ...</span></span></div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(255, 255, 255);">
+            <font style="font-size: 18px;" face="Helvetica Neue">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />only 1 row in a table</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />at most 2 rows in a table</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />one or multiple rows in a table</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />only multiple rows in a table</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </font>
+        </span></div>
+    <div><br /></div>
+    <div><br /></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);">|| UPDATE and DELETE Statements</span></div>
+    <div><span
+            style="font-size: 14px; orphans: 2; widows: 2; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none;"><br /></span>
+    </div>
+    <div>
+        <font face="Helvetica Neue" style="font-size: 18px;"><span
+                style="orphans: 2; widows: 2; -webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal;">At
+                the end of this lesson, </span><span
+                style="orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgba(0, 0, 0, 0.8);">you
+                will be able to identify the syntax of the UPDATE statement and </span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">DELETE
+            statement and explain the importance of the WHERE clause in these statements. </span><span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">After
+            a table is created and populated with data, </span><span
+            style="background-color: rgb(238, 238, 238); font-size: 18px; color: rgba(0, 0, 0, 0.8); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal;">the
+            data in a table can be altered with the UPDATE statement</span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <font face="Helvetica Neue" style="font-size: 18px;"><span
+                style="background-color: rgb(238, 238, 238);"><br /></span></font>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/F5DC9DBA-63F6-43FE-9A35-4EAA855F352F.png"
+                height="424" width="921" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span
+            style="font-size: 18px; color: rgba(0, 0, 0, 0.8); font-variant-caps: normal; font-variant-ligatures: normal;"><img
+                src="images/BF4FE0E3-9AC9-4E11-BFEE-5D7E2C9F0B09.png"
+                height="437" width="841" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="font-size: 18px;"><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <div dir="auto" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+            <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                <div
+                    style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                    <span
+                        style="-webkit-font-smoothing: antialiased;max-width: 100%;min-height: 20px;-en-paragraph:true;"><span
+                            style="font-size: 18px; color: rgb(55, 58, 60); font-family: &quot;Helvetica Neue&quot;; font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;">When
+                            using the UPDATE statement, if you do not specify the WHERE clause, all the rows in the
+                            table are updated.</span></span></div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <span style="background-color: rgb(255, 255, 255);">
+            <font style="font-size: 18px;" face="Helvetica Neue">
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />True</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                    <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                        <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 0px 20px;">
+                            <div dir="auto"
+                                style="box-sizing: inherit; -webkit-font-smoothing: antialiased; overflow-wrap: break-word;">
+                                <div style="box-sizing: inherit; -webkit-font-smoothing: antialiased;">
+                                    <div
+                                        style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; margin-top: 1em; margin-bottom: 1em;">
+                                        <span
+                                            style="-webkit-font-smoothing: antialiased; max-width: 100%; min-height: 20px; background-color: rgb(255, 255, 255); font-size: 18px; font-family: &quot;Helvetica Neue&quot;; color: rgb(55, 58, 60); font-variant-caps: normal; font-variant-ligatures: normal; line-height: 20px;-en-paragraph:true;"><input
+                                                type="checkbox" />False</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </font>
+        </span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);"><br /></span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);">|| Delete</span></div>
+    <div><br /></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/080CC47D-8E85-413C-89ED-588E983BB7C2.png"
+                height="363" width="729" /><br /></span></div>
+    <div><span style="font-size: 36px;"><br /></span></div>
+    <div><span style="font-size: 36px;"><br /></span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/F04F1F74-C91F-412D-AB42-E43823E43F04.png"
+                height="313" width="723" /><br /></span></div>
+    <div><span style="font-size: 36px;"><br /></span></div>
+    <div><span style="font-size: 36px; color: rgba(0, 0, 0, 0.8);"><img
+                src="images/48506ED1-CF31-47B7-B100-446C0A852AE4.png"
+                height="141" width="675" /><br /></span></div>
+    <div
+        style="-webkit-font-smoothing: antialiased; cursor: pointer; opacity: 1; filter: none; color: rgba(0, 0, 0, 0.8); font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
+</body>
+
+</html>
